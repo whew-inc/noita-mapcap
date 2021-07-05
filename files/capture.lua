@@ -53,6 +53,18 @@ local function captureScreenshot(x, y, rx, ry)
 	local xMax, yMax = xMin + virtualWidth, yMin + virtualHeight
 
 	UiCaptureDelay = 0
+	
+	wait(0)
+	GameSetCameraPos(x + 200, y + 200)
+	wait(0)
+	GameSetCameraPos(x - 200, y + 200)
+	wait(0)
+	GameSetCameraPos(x + 200, y - 200)
+	wait(0)
+	GameSetCameraPos(x - 200, y - 200)
+	wait(0)
+	
+	
 	GameSetCameraPos(x, y)
 	repeat
 		if UiCaptureDelay > 100 then
