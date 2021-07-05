@@ -31,6 +31,13 @@ CAPTURE_AREA_EXTENDED = {
 	Bottom = 41984 -- in ingame pixels. (Coordinate is not included in the rectangle)
 }
 
+CAPTURE_BG_EXTENDED = {
+	Left = -53760, -- in ingame pixels.
+	Top = -63488, -- in ingame pixels.
+	Right = 53760, -- in ingame pixels. (Coordinate is not included in the rectangle)
+	Bottom = 83968 -- in ingame pixels. (Coordinate is not included in the rectangle)
+}
+
 local function preparePlayer()
 	local playerEntity = getPlayer()
 	addEffectToEntity(playerEntity, "PROTECTION_ALL")
@@ -41,6 +48,13 @@ local function preparePlayer()
 	--addPerkToPlayer("REPELLING_CAPE")
 	--addPerkToPlayer("WORM_DETRACTOR")
 	setPlayerHP(CAPTURE_FORCE_HP)
+	
+	local CharacterPlatforming = EntityGetFirstComponentIncludingDisabled(
+    playerEntity,
+    "CharacterPlatformingComponent"
+  )
+
+  EntitySetComponentIsEnabled(playerEntity, CharacterPlatforming, false)
 end
 
 local function captureScreenshot(x, y, rx, ry)
