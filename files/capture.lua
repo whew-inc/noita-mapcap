@@ -81,7 +81,7 @@ local function captureScreenshot(x, y, rx, ry)
 	
 	GameSetCameraPos(x, y)
 	repeat
-		if UiCaptureDelay > 100 then
+		if UiCaptureDelay > 5 then
 			-- Wiggle the screen a bit, as chunks sometimes don't want to load
 			GameSetCameraPos(x + math.random(-100, 100), y + math.random(-100, 100))
 			DrawUI()
